@@ -1,0 +1,49 @@
+<html>
+<head>
+  <style>
+  button {
+    margin-left: 10px;
+  }
+
+  .results {
+    margin-top: 20px;
+    border: #ccc 1px solid;
+    white-space: pre;
+    display: none;
+  }
+  </style>
+  <script src="https://miro.com/app/static/boardsPicker.1.0.js"></script>
+</head>
+<body>
+  <label>
+    Choose action
+    <select>
+      <option value="select">select</option>
+      <option value="access-link">access-link</option>
+    </select>
+  </label>
+  <button>
+  Open Boards Picker
+  </button>
+  <div class="results"></div>
+  
+  <script>
+  var button = document.querySelector('button')
+var actionSelect = document.querySelector('select')
+var resultsBox = document.querySelector('.results')
+
+button.addEventListener('click', () => {
+	const pickerWindow = miroBoardsPicker.open({
+	  //accessLinkMode: true,
+     pickCallback: (data) => {
+    	console.log('on pick', data)
+      resultsBox.innerHTML = JSON.stringify(data, null, 4)
+      resultsBox.style.display = "block"
+      pickerWindow.close()
+    }
+  })	
+})
+
+  </script>
+</body>
+</html>
