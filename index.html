@@ -38,6 +38,12 @@
             margin-top: 20px;
             white-space: pre;
             display: none;
+            width: 100%;
+            border: none;
+            background-color: rgba(0,0,0,0);
+            font-family: Arial;
+            font-size: 12px;
+            resize: none;
         }
     </style>
     <script src="https://miro.com/app/static/boardsPicker.1.0.js"></script>
@@ -53,7 +59,7 @@
 <button>
     Open Boards Picker
 </button>
-<div class="results"></div>
+<textarea class="results"></textarea>
 
 <script>
 	var button = document.querySelector('button')
