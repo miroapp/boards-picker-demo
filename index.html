@@ -10,7 +10,6 @@
             background: #f6f6f6;
             padding: 10px;
         }
-
         select {
             font-family: Arial;
             display: inline-block;
@@ -21,7 +20,6 @@
             border: 1px solid #999;
             border-radius: 4px;
         }
-
         button {
             font-family: Arial;
             display: inline-block;
@@ -33,11 +31,9 @@
             border-radius: 4px;
             border: 1px solid #999;
         }
-
         select:hover, button:hover {
             border: 1px solid #333;
         }
-
         .results {
             margin-top: 20px;
             white-space: pre;
@@ -63,18 +59,16 @@
 	var button = document.querySelector('button')
 	var actionSelect = document.querySelector('select')
 	var resultsBox = document.querySelector('.results')
-
 	button.addEventListener('click', () => {
-		const pickerWindow = miroBoardsPicker.open({
-			accessLinkMode: actionSelect.value === 'access-link',
-			pickCallback: (data) => {
+		miroBoardsPicker.open({
+			clientId: '3074457346692766360', // Replace it with your app ClientId
+			action: actionSelect.value,
+			success: (data) => {
 				resultsBox.innerHTML = JSON.stringify(data, null, 4)
 				resultsBox.style.display = "block"
-				pickerWindow.close()
 			}
 		})
 	})
-
 </script>
 </body>
 </html>
